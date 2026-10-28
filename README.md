@@ -5,7 +5,7 @@ retrieval-augmented generation.
 
 ## Current functionality
 
-The application currently prints a startup message.
+DocDesk exposes a liveness endpoint at GET /health/live.
 Document ingestion, search, and AI answers are not implemented yet.
 
 ## Requirements
@@ -36,5 +36,5 @@ python -m pip install -e .
 Run the application:
 
 ```bash
-python -m docdesk.main
+python -m uvicorn docdesk.main:app --reload
 ```

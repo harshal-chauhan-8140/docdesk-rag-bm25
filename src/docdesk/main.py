@@ -1,20 +1,11 @@
-# Define a function named main.
-# The -> None annotation says this function returns no meaningful value.
-def main() -> None:
-    # Store a string in a variable named project_name.
-    project_name = "DocDesk"
+from fastapi import FastAPI
 
-    # Store another string describing our current learning milestone.
-    milestone = "Project setup"
+from docdesk.api.health import router as health_router
 
-    # Print a message, inserting the variable's value into the string.
-    print(f"Welcome to {project_name}!")
+app = FastAPI(
+    title="DocDesk",
+    description="A documentation assistant built with retrieval-augmented generation.",
+    version="0.1.0",
+)
 
-    # Print the milestone on a separate line.
-    print(f"Current milestone: {milestone}")
-
-
-# Run main() only when this file is executed directly.
-# Importing this file from another module will not run main().
-if __name__ == "__main__":
-    main()
+app.include_router(health_router)

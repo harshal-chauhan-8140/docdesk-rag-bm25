@@ -1,9 +1,10 @@
 from collections.abc import Iterator
 from unittest.mock import MagicMock
-import pytest
 
+import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy.exc import OperationalError
+
 from docdesk.main import app
 
 

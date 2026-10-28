@@ -1,8 +1,10 @@
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 
 from docdesk.api.health import router as health_router
+from docdesk.api.search import router as search_router
 from docdesk.config import Settings
 from docdesk.database import build_engine
 
@@ -28,3 +30,4 @@ app = FastAPI(
 )
 
 app.include_router(health_router)
+app.include_router(search_router)

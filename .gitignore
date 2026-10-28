@@ -1,0 +1,27 @@
+# Virtual environments contain installed libraries, not our source code.
+.venv/
+
+# Python generates these cache directories when importing modules.
+__pycache__/
+
+# Compiled Python files are generated automatically.
+*.py[cod]
+
+# Local environment files may contain passwords or API keys.
+.env
+.env.*
+
+# A safe configuration template should remain trackable.
+!.env.example
+
+# These directories contain generated packaging information.
+*.egg-info/
+build/
+dist/
+
+# Testing and linting tools create their own caches.
+.pytest_cache/
+.ruff_cache/
+
+# macOS creates this file to store folder display preferences.
+.DS_Store

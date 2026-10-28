@@ -90,3 +90,49 @@ Stop the container:
 ```bash
 docker stop docdesk-api
 ```
+
+## Run the API and PostgreSQL together
+
+Create `.env` from `.env.example` and replace the password placeholder.
+Do not overwrite an existing configured `.env`.
+
+Validate configuration:
+
+```bash
+docker compose config --quiet
+```
+
+Build and start services:
+
+```bash
+docker compose up --build -d --wait
+```
+
+Inspect service status:
+
+```bash
+docker compose ps
+```
+
+Connect to PostgreSQL:
+
+```bash
+docker compose exec db psql -U docdesk_admin -d docdesk
+```
+
+Stop services while keeping database storage:
+
+```bash
+docker compose down
+```
+
+The API does not query PostgreSQL yet.
+
+## Health checks
+
+- GET /health/live checks whether the API can respond.
+- GET /health/ready executes SELECT 1 against PostgreSQL.
+- Readiness returns HTTP 503 when the database is unavailable.
+
+Run the application through Docker Compose, which supplies its DB_ environment
+variables. Automated tests use controlled database substitutes.

@@ -15,3 +15,16 @@ class Settings(BaseSettings):
     user: str = Field(min_length=1)
     password: SecretStr = Field(min_length=1)
     name: str = Field(min_length=1)
+
+
+class GenerationSettings(BaseSettings):
+    """Configuration for model-based answer generation."""
+
+    model_config = SettingsConfigDict(
+        env_prefix="OPENAI_",
+        hide_input_in_errors=True,
+    )
+
+    api_key: SecretStr | None = None
+
+    model: str = Field(default="gpt-4.1-mini", min_length=1)

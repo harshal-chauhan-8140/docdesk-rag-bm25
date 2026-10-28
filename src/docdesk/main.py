@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from docdesk.api.ask import router as ask_router
 from docdesk.api.health import router as health_router
 from docdesk.api.search import router as search_router
 from docdesk.config import Settings
@@ -31,3 +32,4 @@ app = FastAPI(
 
 app.include_router(health_router)
 app.include_router(search_router)
+app.include_router(ask_router)

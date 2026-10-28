@@ -136,3 +136,20 @@ The API does not query PostgreSQL yet.
 
 Run the application through Docker Compose, which supplies its DB_ environment
 variables. Automated tests use controlled database substitutes.
+
+## Ask a documentation question
+
+Configure OPENAI_API_KEY in the private .env file.
+
+```bash
+curl -X POST "http://127.0.0.1:8000/ask" \
+  -H "Content-Type: application/json" \
+  -d '{"question":"How does FastAPI validate query parameters?"}'
+```
+
+Answers include citation markers and retrieved source passages.
+An unsupported question returns answered=false.
+
+The current dataset contains three FastAPI tutorial pages.
+Retrieval uses BM25; embeddings and hybrid retrieval are not implemented.
+Citation IDs are validated, but factual faithfulness still requires evaluation.

@@ -38,3 +38,29 @@ Run the application:
 ```bash
 python -m uvicorn docdesk.main:app --reload
 ```
+
+## Development checks
+
+Install the project and its development dependencies:
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+Run automated tests:
+
+```bash
+python -m pytest
+```
+
+Check code quality:
+
+```bash
+python -m ruff check .
+```
+
+Check formatting without changing files:
+
+```bash
+python -m ruff format --check .
+```

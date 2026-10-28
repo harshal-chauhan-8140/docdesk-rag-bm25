@@ -64,3 +64,29 @@ Check formatting without changing files:
 ```bash
 python -m ruff format --check .
 ```
+
+## Run with Docker
+
+Build the image:
+
+```bash
+docker build -t docdesk:local .
+```
+
+Start the API:
+
+```bash
+docker run --rm --name docdesk-api -p 127.0.0.1:8000:8000 docdesk:local
+```
+
+Verify from another terminal:
+
+```bash
+curl -i http://127.0.0.1:8000/health/live
+```
+
+Stop the container:
+
+```bash
+docker stop docdesk-api
+```
